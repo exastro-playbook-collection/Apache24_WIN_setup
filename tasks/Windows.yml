@@ -1,0 +1,152 @@
+---
+
+# Apache2.4のセットアップ
+
+###############################################################################
+## httpd.confの更新
+###############################################################################
+
+  - block:
+## templateモジュールにてconfの作成
+    - name: setting httpd.conf
+      template: src=httpd.conf.j2   dest="{{ VAR_Apache24_WIN_path }}\\conf\\httpd.conf"
+
+    - block:
+
+## httpd.confを改行コードをLFからCRLFに変換
+
+      - name: change LF to CRLF
+        raw: 'Get-Content -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\httpd.conf" | Out-File -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\httpd.conf.replace"'
+
+## httpd.conf.replace(CRLF)からhttpd.confへ強制的にmove
+      - name: move httpd.conf.replace to httpd.conf
+        raw: 'Move-Item "{{ VAR_Apache24_WIN_path }}\conf\httpd.conf.replace" "{{ VAR_Apache24_WIN_path }}\conf\httpd.conf" -force'
+
+      when:
+        - apache24_WIN_LFtoCRLF in [True,False]
+        - apache24_WIN_LFtoCRLF == True
+
+    when: 
+      - VAR_Apache24_WIN_Http in [True,False]
+      - VAR_Apache24_WIN_Http == True
+
+###############################################################################
+## httpd-default.confの更新
+###############################################################################
+
+  - block:
+
+## templateモジュールにてconfの作成
+    - name: setting httpd-default.conf
+      template: src=httpd-default.conf.j2 dest="{{ VAR_Apache24_WIN_path }}\\conf\\extra\\httpd-default.conf"
+
+## httpd-default.confを改行コードをLFからCRLFに変換
+
+    - block:
+
+      - name: change LF to CRLF
+        raw: 'Get-Content -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-default.conf" | Out-File -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-default.conf.replace"'
+
+## httpd-default.replace(CRLF)からhttpd-default.confへ強制的にmove
+
+      - name: move httpd-default.conf.replace to httpd-default.conf
+        raw: 'Move-Item "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-default.conf.replace" "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-default.conf" -force'
+
+      when:
+        - apache24_WIN_LFtoCRLF in [True,False]
+        - apache24_WIN_LFtoCRLF == True
+
+    when: 
+      - VAR_Apache24_WIN_Default in [True,False]
+      - VAR_Apache24_WIN_Default == True
+
+###############################################################################
+## httpd-info.confの更新
+###############################################################################
+
+  - block:
+ 
+## templateモジュールにてconfの作成
+    - name: setting httpd-info.conf
+      template: src=httpd-info.conf.j2 dest="{{ VAR_Apache24_WIN_path }}\\conf\\extra\\httpd-info.conf"
+
+## httpd-info.confを改行コードをLFからCRLFに変換
+
+    - block:
+
+      - name: change LF to CRLF
+        raw: 'Get-Content -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-info.conf" | Out-File -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-info.conf.replace"'
+
+## httpd-info.conf.replace(CRLF)からhttpd-info.confへ強制的にmove
+
+      - name: move httpd-info.conf.replace to httpd-info.conf
+        raw: 'Move-Item "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-info.conf.replace" "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-info.conf" -force'
+
+      when:
+        - apache24_WIN_LFtoCRLF in [True,False]
+        - apache24_WIN_LFtoCRLF == True
+
+    when: 
+      - VAR_Apache24_WIN_Info in [True,False]
+      - VAR_Apache24_WIN_Info == True
+
+###############################################################################
+## httpd-mpm.confの更新
+###############################################################################
+
+  - block:
+
+## templateモジュールにてconfの作成
+    - name: setting httpd-mpm.conf
+      template: src=httpd-mpm.conf.j2 dest="{{ VAR_Apache24_WIN_path }}\\conf\\extra\\httpd-mpm.conf"
+
+## httpd-mpm.confを改行コードをLFからCRLFに変換
+
+    - block:
+
+      - name: change LF to CRLF
+        raw: 'Get-Content -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-mpm.conf" | Out-File -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-mpm.conf.replace"'
+
+## httpd-mpm.conf.replace(CRLF)からhttpd-.confへ強制的にmove
+
+      - name: move httpd-mpm.conf.replace to httpd-mpm.conf
+        raw: 'Move-Item "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-mpm.conf.replace" "{{ VAR_Apache24_WIN_path }}\conf\extra\httpd-mpm.conf" -force'
+
+      when:
+        - apache24_WIN_LFtoCRLF in [True,False]
+        - apache24_WIN_LFtoCRLF == True
+
+    when: 
+      - VAR_Apache24_WIN_MPM in [True,False]
+      - VAR_Apache24_WIN_MPM == True
+
+###############################################################################
+## proxy.confの更新
+###############################################################################
+
+  - block:
+
+## templateモジュールにてconfの作成
+    - name: setting proxy.conf
+      template: src=proxy.conf.j2 dest="{{ VAR_Apache24_WIN_path }}\\conf\\extra\\proxy.conf"
+
+## proxy.confを改行コードをLFからCRLFに変換
+
+    - block:
+
+      - name: change LF to CRLF
+        raw: 'Get-Content -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\proxy.conf" | Out-File -Encoding default "{{ VAR_Apache24_WIN_path }}\conf\extra\proxy.conf.replace"'
+
+## proxy.conf.replace(CRLF)からproxy.confへ強制的にmove
+
+      - name: move proxy.conf.replace to proxy.conf
+        raw: 'Move-Item "{{ VAR_Apache24_WIN_path }}\conf\extra\proxy.conf.replace" "{{ VAR_Apache24_WIN_path }}\conf\extra\proxy.conf" -force'
+
+      when:
+        - apache24_WIN_LFtoCRLF in [True,False]
+        - apache24_WIN_LFtoCRLF == True
+
+    when: 
+      - VAR_Apache24_WIN_Proxy in [True,False]
+      - VAR_Apache24_WIN_Proxy == True
+

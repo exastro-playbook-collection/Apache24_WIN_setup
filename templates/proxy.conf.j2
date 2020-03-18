@@ -1,0 +1,87 @@
+{% if VAR_Apache24_WIN_ProxyPass is defined and VAR_Apache24_WIN_ProxyPass != None %}
+{% for apache_local_proxypass in VAR_Apache24_WIN_ProxyPass %}
+{% if apache_local_proxypass != None %}
+ProxyPass {{ apache_local_proxypass }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyPassReverse is defined and VAR_Apache24_WIN_ProxyPassReverse != None %}
+{% for apache_local_proxypassreverse in VAR_Apache24_WIN_ProxyPassReverse %}
+{% if apache_local_proxypassreverse != None %}
+ProxyPassReverse {{ apache_local_proxypassreverse }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyPassReverseCookieDomain is defined and VAR_Apache24_WIN_ProxyPassReverseCookieDomain != None %}
+{% for apache_local_proxypassreversecookiedomain in VAR_Apache24_WIN_ProxyPassReverseCookieDomain %}
+{% if apache_local_proxypassreversecookiedomain != None %}
+ProxyPassReverseCookieDomain {{ apache_local_proxypassreversecookiedomain }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyPassReverseCookiePath is defined and VAR_Apache24_WIN_ProxyPassReverseCookiePath != None %}
+{% for apache_local_proxypassreversecookiepath in VAR_Apache24_WIN_ProxyPassReverseCookiePath %}
+{% if apache_local_proxypassreversecookiepath != None %}
+ProxyPassReverseCookiePath {{ apache_local_proxypassreversecookiepath }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyPassMatch is defined and VAR_Apache24_WIN_ProxyPassMatch != None %}
+{% for apache_local_proxypassmatch in VAR_Apache24_WIN_ProxyPassMatch %}
+{% if apache_local_proxypassmatch != None %}
+ProxyPassMatch {{ apache_local_proxypassmatch }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxySet is defined and VAR_Apache24_WIN_ProxySet != None %}
+{% for apache_local_proxyset in VAR_Apache24_WIN_ProxySet %}
+{% if apache_local_proxyset != None %}
+ProxySet {{ apache_local_proxyset }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyBadHeader is defined and VAR_Apache24_WIN_ProxyBadHeader != None %}
+ProxyBadHeader {{ VAR_Apache24_WIN_ProxyBadHeader }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyBlock is defined and VAR_Apache24_WIN_ProxyBlock != None %}
+ProxyBlock {{ VAR_Apache24_WIN_ProxyBlock }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyDomain is defined and VAR_Apache24_WIN_ProxyDomain != None %}
+ProxyDomain {{ VAR_Apache24_WIN_ProxyDomain }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyErrorOverride is defined and VAR_Apache24_WIN_ProxyErrorOverride != None %}
+ProxyErrorOverride {{ VAR_Apache24_WIN_ProxyErrorOverride }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyIOBufferSize is defined and VAR_Apache24_WIN_ProxyIOBufferSize != None %}
+ProxyIOBufferSize {{ VAR_Apache24_WIN_ProxyIOBufferSize }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyMaxForwards is defined and VAR_Apache24_WIN_ProxyMaxForwards != None %}
+ProxyMaxForwards {{ VAR_Apache24_WIN_ProxyMaxForwards }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyPassInterpolateEnv is defined and VAR_Apache24_WIN_ProxyPassInterpolateEnv != None %}
+ProxyPassInterpolateEnv {{ VAR_Apache24_WIN_ProxyPassInterpolateEnv }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyPreserveHost is defined and VAR_Apache24_WIN_ProxyPreserveHost != None %}
+ProxyPreserveHost {{ VAR_Apache24_WIN_ProxyPreserveHost }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyReceiveBufferSize is defined and VAR_Apache24_WIN_ProxyReceiveBufferSize != None %}
+ProxyReceiveBufferSize {{ VAR_Apache24_WIN_ProxyReceiveBufferSize }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyStatus is defined and VAR_Apache24_WIN_ProxyStatus != None %}
+ProxyStatus {{ VAR_Apache24_WIN_ProxyStatus }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyTimeout is defined and VAR_Apache24_WIN_ProxyTimeout != None %}
+ProxyTimeout {{ VAR_Apache24_WIN_ProxyTimeout }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyVia is defined and VAR_Apache24_WIN_ProxyVia != None %}
+ProxyVia {{ VAR_Apache24_WIN_ProxyVia }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyAddHeaders is defined and VAR_Apache24_WIN_ProxyAddHeaders != None %}
+ProxyAddHeaders {{ VAR_Apache24_WIN_ProxyAddHeaders }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxyPassInherit is defined and VAR_Apache24_WIN_ProxyPassInherit != None %}
+ProxyPassInherit {{ VAR_Apache24_WIN_ProxyPassInherit }}
+{% endif %}
+{% if VAR_Apache24_WIN_ProxySourceAddress is defined and VAR_Apache24_WIN_ProxySourceAddress != None %}
+ProxySourceAddress {{ VAR_Apache24_WIN_ProxySourceAddress }}
+{% endif %}

@@ -1,0 +1,88 @@
+###  vars file for ansible-apache
+
+# install packages path
+VAR_Apache24_WIN_path: 'C:\Apache24'
+
+# setting silent intall for Apache2.4
+VAR_Apache24_WIN_ServiceName: 'Apache2.4'
+
+## setting http.conf
+VAR_Apache24_WIN_Http: on
+VAR_Apache24_WIN_Http_ServerRoot: c:/Apache24
+VAR_Apache24_WIN_Http_Listen: 80
+VAR_Apache24_WIN_Http_ServerAdmin: admin@localhost
+VAR_Apache24_WIN_Http_ServerName:
+VAR_Apache24_WIN_Http_DocumentRoot: C:/Apache24/htdocs
+VAR_Apache24_WIN_Http_DirectoryIndex: index.html index.html.var
+VAR_Apache24_WIN_Http_TypesConfig: conf/mime.types
+VAR_Apache24_WIN_Http_AddDefaultCharset: UTF-8
+VAR_Apache24_WIN_Http_MIMEMagicFile: conf/magic
+VAR_Apache24_WIN_Http_ErrorLog: logs/error_log
+VAR_Apache24_WIN_Http_LogLevel: warn
+VAR_Apache24_WIN_Http_LogFormat:
+VAR_Apache24_WIN_Http_LogFormat_IO:
+VAR_Apache24_WIN_Http_CustomLog: '"logs/access.log" combined'
+VAR_Apache24_WIN_Http_EnableMMAP: 'On'
+VAR_Apache24_WIN_Http_EnableSendfile: 'On'
+
+## setting httpd-default.conf
+VAR_Apache24_WIN_Default: off
+VAR_Apache24_WIN_Default_ServerTokens: Prod
+VAR_Apache24_WIN_Default_Timeout:
+VAR_Apache24_WIN_Default_KeepAlive:
+VAR_Apache24_WIN_Default_MaxKeepAliveRequests:
+VAR_Apache24_WIN_Default_KeepAliveTimeout:
+VAR_Apache24_WIN_Default_UseCanonicalName:
+VAR_Apache24_WIN_Default_AccessFileName: .htaccess
+VAR_Apache24_WIN_Default_HostnameLookups:
+VAR_Apache24_WIN_Default_ServerSignature:
+VAR_Apache24_WIN_Default_RequestReadTimeout: header=20-40,MinRate=500 body=20,MinRate=500
+
+## setting httpd-info.conf
+VAR_Apache24_WIN_Info: off
+VAR_Apache24_WIN_Info_ExtendedStatus:
+VAR_Apache24_WIN_Info_ServerStatus: off
+VAR_Apache24_WIN_Info_ServerStatus_Location: /server-status
+VAR_Apache24_WIN_Info_ServerStatus_Require: RequireAny
+VAR_Apache24_WIN_Info_ServerStatus_RequireResource: ["host .example.com","ip 127"]
+
+
+## setting httpd-mpm.conf
+VAR_Apache24_WIN_MPM: off
+VAR_Apache24_WIN_MPM_ThreadsPerChild: 64
+VAR_Apache24_WIN_MPM_MaxConnectionsPerChild: 0
+VAR_Apache24_WIN_MPM_AcceptFilter: []
+VAR_Apache24_WIN_MPM_MaxMemFree: 2048
+
+## setting proxy.conf
+VAR_Apache24_WIN_Proxy: off
+VAR_Apache24_WIN_ProxyPass: ["/ ajp://localhost:8009/"]
+VAR_Apache24_WIN_ProxyPassReverse: ["/ ajp://localhost:8009/"]
+VAR_Apache24_WIN_ProxyPassReverseCookieDomain: []
+VAR_Apache24_WIN_ProxyPassReverseCookiePath: []
+VAR_Apache24_WIN_ProxyPassMatch: []
+VAR_Apache24_WIN_ProxySet: []
+VAR_Apache24_WIN_ProxyBadHeader:
+VAR_Apache24_WIN_ProxyBlock:
+VAR_Apache24_WIN_ProxyDomain:
+VAR_Apache24_WIN_ProxyErrorOverride:
+VAR_Apache24_WIN_ProxyIOBufferSize:
+VAR_Apache24_WIN_ProxyMaxForwards:
+VAR_Apache24_WIN_ProxyPassInterpolateEnv:
+VAR_Apache24_WIN_ProxyPreserveHost:
+VAR_Apache24_WIN_ProxyReceiveBufferSize:
+VAR_Apache24_WIN_ProxyStatus:
+VAR_Apache24_WIN_ProxyTimeout:
+VAR_Apache24_WIN_ProxyVia:
+VAR_Apache24_WIN_ProxyAddHeaders:
+VAR_Apache24_WIN_ProxyPassInherit:
+VAR_Apache24_WIN_ProxySourceAddress:
+
+# local vars
+
+## LF to CRLF
+apache24_WIN_LFtoCRLF: on
+
+## OS and version
+apache24_WIN_OS_Version: 'Microsoft Windows Server 2016'
+
