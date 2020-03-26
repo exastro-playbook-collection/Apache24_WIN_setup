@@ -3,9 +3,6 @@
 # install packages path
 VAR_Apache24_WIN_path: 'C:\Apache24'
 
-# setting silent intall for Apache2.4
-VAR_Apache24_WIN_ServiceName: 'Apache2.4'
-
 ## setting http.conf
 VAR_Apache24_WIN_Http: on
 VAR_Apache24_WIN_Http_ServerRoot: c:/Apache24
